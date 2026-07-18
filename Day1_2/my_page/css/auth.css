@@ -155,6 +155,11 @@ fieldset {
     width: 100%;
 }
 
+/* 로그인 버튼 가운데 정렬 */
+#login-submit {
+    margin: 20px auto 0;
+}
+
 .align-center {
     display: flex;
     flex-direction: column;
@@ -172,6 +177,12 @@ fieldset {
     justify-content: space-between;
 
     margin-top: 18px;
+}
+
+/* fieldset 바로 아래 Create Account 메뉴 가운데 정렬 */
+fieldset > .account-menu {
+    justify-content: center;
+    text-align: center;
 }
 
 .account-menu a {
@@ -206,6 +217,9 @@ h1, #signup-legend {
     margin-bottom: 25px;
 }
 
+.login-id, .login-pw {
+    width: 100%;
+}
 #user-pw {
     margin-bottom: 5px;
 }
