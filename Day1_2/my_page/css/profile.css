@@ -1,0 +1,310 @@
+
+/*====body 폰트, hr 태그 색상 동일하게 적용====*/
+
+body > main {
+    width: 100%;
+    padding: 0 24px 80px;
+    box-sizing: border-box;
+}
+
+body > main > .main-content {
+    width: min(1400px, 100%);
+    min-width: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+body > main *,
+body > main *::before,
+body > main *::after {
+    box-sizing: border-box;
+}
+
+
+
+ul li {
+    list-style-type: none;
+    margin-bottom: 12px; 
+    line-height: 180%;
+    padding-left: 0;
+}
+
+/*====숫자 맞추기 게임====*/
+.profile-game-row {
+    display: grid;
+    grid-template-columns: minmax(300px, 1fr) minmax(420px, 1.3fr);
+    align-items: start;
+    gap: 60px;
+}
+
+.profile-chapter,
+.game-chapter {
+    min-width: 0;
+}
+
+.number-game {
+    width: 100%;
+    margin-top: 30px;
+    padding: 30px;
+    
+    border-radius: 16px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+}
+
+.number-game > p:first-child {
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.game-input-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.game-input-group label {
+    width: 100%;
+    font-weight: 600;
+}
+
+.game-input-group input {
+    width: 150px;
+    padding: 11px 12px;
+    border: 1px solid #cfcfcf;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.game-input-group button {
+    padding: 11px 18px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    background-color: #3678a8;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.game-input-group #reset-btn {
+    background-color: #7e7e7e;
+}
+
+.game-input-group button:hover,
+.game-input-group button:focus {
+    opacity: 0.85;
+}
+
+.game-result {
+    min-height: 24px;
+    margin: 24px 0 8px;
+    color: #3678a8;
+    font-weight: 700;
+}
+
+.try-count {
+    margin-bottom: 0;
+}
+
+body.dark-mode .number-game {
+    color: #f5f5f5;
+    border-color: #555;
+    background-color: #333;
+}
+
+@media (max-width: 600px) {
+    .number-game {
+        padding: 22px 18px;
+    }
+
+    .game-input-group input {
+        width: 100%;
+    }
+}
+
+
+
+/*====content 부분 style ====*/
+
+/*====자기 소개 영역====*/
+.intro-content {
+    margin-left: 0;
+}
+
+.intro-content h2 {
+    background: #f6f0df;
+    padding: 5px 10px;
+    width: 30%;
+    margin: 50px 0 20px;
+    font-weight: 700;
+
+}
+
+/* h3 = 프로젝트명, 취미명 */
+.intro-content h3 {
+    margin-top: 30px;
+    padding-left: 20px;
+
+    font-weight: 600;
+
+    border-left: 4px solid #daab59;
+}
+
+/* h4 = 내가 여행한 곳 */
+.intro-content h4, .intro-content h5 {
+    margin-top: 25px;
+
+    color: #7b7a7a;
+}
+
+
+
+
+
+
+
+
+
+/*====기술 스택 영역 css====*/
+
+/* 전체 기술 스택 영역 */
+.skills-section {
+    width: 100%;
+    padding: 30px 20px 80px;
+}
+
+/* 화면 가운데 정렬 */
+.skills-container {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+/* 제목 영역 */
+.skills-header {
+    padding-bottom: 28px;
+    border-bottom: 1px solid #d7d7d7;
+}
+
+.skills-header h1 {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -2px;
+}
+
+/* 기술 스택 2열 배치 */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 190px;
+    row-gap: 105px;
+    margin-top: 72px;
+}
+
+/* 개별 기술 영역 */
+.skill-card {
+    min-width: 0;
+}
+
+/* Backend, Database 등의 제목 */
+.skill-card h2 {
+    margin: 0 0 26px;
+    padding: 3px 8px;
+    font-size: 32px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    background-color: #f8f1dd;
+}
+
+/* 기술 목록 */
+.skill-card ul {
+    margin: 0;
+    padding-left: 48px;
+}
+
+.skill-card li {
+    margin-bottom: 19px;
+    padding-left: 6px;
+    font-size: 27px;
+    line-height: 1.2;
+    letter-spacing: -0.8px;
+}
+
+.skill-card li:last-child {
+    margin-bottom: 0;
+}
+
+/* 900px, 600px에서 화면 정렬*/
+@media (max-width: 900px) {
+    .profile-game-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .game-chapter {
+        margin-bottom: 60px;
+    }
+
+    .skills-section {
+        padding: 30px 24px 60px;
+    }
+
+    .skills-header h1 {
+        font-size: 40px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        row-gap: 60px;
+        margin-top: 55px;
+    }
+
+    .skill-card h2 {
+        font-size: 29px;
+    }
+
+    .skill-card li {
+        font-size: 23px;
+    }
+}
+
+@media (max-width: 600px) {
+    body > main {
+        padding: 0 14px 60px;
+    }
+
+    .skills-section {
+        padding: 24px 18px 50px;
+    }
+
+    .skills-header {
+        padding-bottom: 22px;
+    }
+
+    .skills-header h1 {
+        font-size: 34px;
+    }
+
+    .skills-grid {
+        margin-top: 42px;
+        row-gap: 45px;
+    }
+
+    .skill-card h2 {
+        margin-bottom: 22px;
+        font-size: 26px;
+    }
+
+    .skill-card ul {
+        padding-left: 38px;
+    }
+
+    .skill-card li {
+        margin-bottom: 16px;
+        font-size: 20px;
+    }
+}

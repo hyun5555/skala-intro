@@ -1,0 +1,399 @@
+
+/*====travel 페이지 기본 구조-====*/
+
+body.travel-page {
+    margin: 0;
+
+    color: #202124;
+    background: #f8f9fb;
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease;
+}
+
+.travel-main {
+    min-height: 70vh;
+    width: 100%;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+.travel-main .main-content {
+    width: min(1400px, 100%);
+    min-width: 0;
+    margin: 0 auto;
+    padding: 70px 0 100px;
+    box-sizing: border-box;
+}
+
+.travel-main *,
+.travel-main *::before,
+.travel-main *::after {
+    box-sizing: border-box;
+}
+
+
+/*=======상단 타이틀 (헤더 타이틀이랑 다름)=> 대제목 =====*/
+
+.travel-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+
+    margin-bottom: 36px;
+    padding-bottom: 24px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.travel-topbar h1 {
+    margin: 4px 0 0;
+
+    color: #202124;
+
+    font-size: clamp(36px, 5vw, 62px);
+    line-height: 1.15;
+}
+
+.travel-eyebrow {
+    margin: 0;
+
+    color: #acd8f8;
+
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+}
+
+
+
+
+
+/*========카드 목록형 갤러리 제목=========*/
+
+.travel-gallery-section {
+    margin-top: 30px;
+}
+
+.gallery-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+
+    margin-bottom: 28px;
+}
+
+.gallery-header h2 {
+    margin: 0 0 7px;
+
+    color: #202124;
+
+    font-size: 34px;
+}
+
+/*=====여행 카드 3열 Grid======*/
+
+.travel-gallery {
+    display: grid;
+
+    /* 기본 화면 카드 3열 */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 26px;
+}
+
+.travel-card {
+    min-width: 0;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/*카드 클릭시 hover+ 앞으로 나오기 + 그림자 강화*/
+.travel-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 22px 48px rgba(15, 23, 42, 0.2);
+    border-color: #dbebf9;
+}
+
+.travel-open-button {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+    padding: 0;
+
+    color: #202124;
+    background: transparent;
+
+    border: 0;
+
+    text-align: left;
+    cursor: pointer;
+}
+
+.travel-open-button figure {
+    margin: 0;
+}
+
+.travel-image-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.travel-image-wrap img {
+    display: block;
+
+    width: 100%;
+    height: 230px;
+
+    object-fit: cover;
+
+    transition: transform 0.3s ease;
+}
+
+.travel-card:hover .travel-image-wrap img {
+    transform: scale(1.06);
+}
+
+.travel-status {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+
+    padding: 6px 11px;
+
+    color: #202124;
+    background: #e8f4ff;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.travel-card figcaption {
+    padding: 22px;
+}
+
+.card-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.card-heading h3 {
+    margin: 0;
+
+    color: #202124;
+
+    font-size: 22px;
+}
+
+.card-heading span {
+    margin-left: auto;
+    font-size: 22px;
+}
+
+.card-detail {
+    color: #dbebf9;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+
+/*=======화면 iframe으로 중앙에 미리보기 창 띄우기=========*/
+
+.page-preview {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px;
+}
+
+.page-preview.is-open {
+    display: flex;
+}
+
+.page-preview-backdrop {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(15, 15, 15, 0.62);
+    backdrop-filter: blur(2px);
+}
+
+.page-preview-window {
+    position: relative;
+    z-index: 1;
+
+    width: min(1100px, 90vw);
+    height: min(820px, 88vh);
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    box-shadow: 0 22px 48px rgba(15, 23, 42, 0.2);
+
+    animation: preview-show 0.3s ease both;
+}
+
+@keyframes preview-show {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.page-preview-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 58px;
+    padding: 0 16px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.preview-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    margin-left: auto;
+}
+
+.preview-expand-button,
+.preview-actions button {
+    min-width: 38px;
+    height: 38px;
+    padding: 0 11px;
+
+    color: #202124;
+    background: transparent;
+
+    border: 0;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: background 0.3s ease;
+}
+
+.preview-expand-button:hover,
+.preview-actions button:hover {
+    background: #f1f5f9;
+}
+
+.preview-close-button {
+    font-size: 25px;
+}
+
+.travel-preview-frame {
+    display: block;
+
+    width: 100%;
+    height: calc(100% - 58px);
+
+    background: #ffffff;
+
+    border: 0;
+}
+
+body.preview-open {
+    overflow: hidden;
+}
+
+
+
+/*====브라우저 화면 크기 900px 이하일때 2열======*/
+
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .travel-page .travel-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .travel-topbar {
+        align-items: flex-start;
+    }
+}
+
+
+/*====브라우저 화면 크기 600px 이하 1열======*/
+
+@media screen and (max-width: 600px) {
+    .travel-page #nav-bar,
+    .travel-page #header-container nav {
+        display: none;
+    }
+
+    .travel-main {
+        padding: 0 14px;
+    }
+
+    .travel-main .main-content {
+        padding: 42px 0 70px;
+    }
+
+    .travel-topbar {
+        display: block;
+    }
+
+    .travel-page .travel-gallery {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .gallery-header {
+        align-items: flex-start;
+    }
+
+    .travel-image-wrap img {
+        height: 240px;
+    }
+
+    .page-preview {
+        padding: 0;
+    }
+
+    .page-preview-window {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+
+    .preview-actions > button:first-child {
+        display: none;
+    }
+}

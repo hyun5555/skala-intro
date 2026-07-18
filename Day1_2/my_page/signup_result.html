@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>결과 페이지</title>
+        <link rel="stylesheet" href="./css/common.css">
+        <link rel="stylesheet" href="./css/auth.css">
+    </head>
+
+    <body>
+        <main class="result-container">
+
+            <fieldset>
+                <section class="success-area">
+
+                    <p class="success-icon" aria-hidden="true">🎉</p>
+
+                    <h1>회원가입이 완료되었습니다.</h1>
+
+                    <div class="table-wrap">
+                        <table>
+
+                            <tbody>
+                                <tr>
+                                    <th scope="row">이름</th>
+                                    <td id="resultName"></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">아이디</th>
+                                    <td id="resultId"></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">이메일</th>
+                                    <td id="resultEmail"></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">전화번호</th>
+                                    <td id="resultTel"></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">생년월일</th>
+                                    <td id="resultBirth"></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">성별</th>
+                                    <td id="resultGender"></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">관심 분야</th>
+                                    <td id="resultInterest"></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">거주 지역</th>
+                                    <td id="resultRegion"></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="create-btn align-center">
+                        <button type="submit" class="btn-submit" id="go-submit" onclick="location.href='index.html';" >
+                            Go to main
+                        </button>
+                    </div>
+
+                </section>
+            </fieldset>
+
+            
+        </main>
+        <script src="./js/auth.js"></script>
+
+    </body>
+
+</html>

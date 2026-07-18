@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>나의 스케줄 관리 페이지</title>
+
+        
+        <link rel="stylesheet" href="./css/schedule.css">
+        <link rel="stylesheet" href="./css/common.css">
+
+    </head>
+
+    <body>
+
+        <div id="header-container"></div>
+
+        <main class="schedule-page">
+            <div class="main-content">
+
+                <!------///// 나의 목표 ///////------>
+                <section class="page-section">
+                    <div class="serve-title-group">
+                        <h1 id="intro-title">#나의 목표</h1>
+                        <hr>
+                    </div>
+
+                    <div class="goal-card">
+                        <label for="goalInput">이번 주 목표</label>
+
+                        <textarea id="goalInput" placeholder="이번 주에 이루고 싶은 목표를 작성하세요." ></textarea>
+
+                        <button type="button" id="saveGoalBtn">
+                            목표 저장
+                        </button>
+                        
+                    </div>
+
+
+                    <!------ 오늘의 한마디 ------>
+                    <section class="quote-section">
+                        <div>
+                            <span class="quote-label">오늘의 한마디</span>
+                            <p id="quoteText">한마디를 불러오는 중입니다.</p>
+
+                            <div id="goalList"></div>
+                    
+                        </div>
+                    </section>
+
+                </section>
+
+
+
+                <!------///// 타임블럭 ///////------>
+                <section class="page-section">
+                    <div class="serve-title-group">
+                        <h1 id="intro-title">#TimeBlock</h1>
+                        <hr>
+                    </div>
+
+                    <!--타임블럭 상단 대제목, date 표시 박스-->
+                    <div class="time-container">
+                        <div class="time-header">
+                            <h1>Time-block Calendar</h1>
+                            <div class="date-display" id="dateDisplay"></div>
+                        </div>
+
+                        <!--버튼 컨트롤러 박스-->
+                        <div class="controls">
+                            <button class="btn btn-primary" id="addEventBtn">+ Add Event</button>
+                            <button class="btn btn-secondary" id="todayBtn">Today</button>
+                            <button class="btn btn-secondary" id="clearAllBtn">Clear All</button>
+                        </div>
+
+                        <!--캘린더 박스랑 타임 라벨 그리드-->
+                        <div class="calendar-container">
+                            <div class="time-grid">
+                                <div class="time-labels" id="timeLabels"></div>
+                                <div class="calendar-body" id="calendarBody">
+                                    <div id="currentTimeIndicator" class="current-time-indicator" style="display: none;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--이벤트 추가 모달 박스-->
+                    <div class="modal" id="eventModal">
+                        <div class="modal-content">
+                            <h3 id="modalTitle">Add New Event</h3>
+
+                            <form id="eventForm">
+
+                                <div class="form-group">
+                                    <label for="eventTitle">Event Title</label>
+                                    <input type="text" id="eventTitle" placeholder="Enter event title" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="eventStart">Start Time</label>
+
+                                    <div class="time-input-group">
+                                        <select class="time-select" id="eventStartPeriod">
+                                            <option value="AM">오전</option>
+                                            <option value="PM">오후</option>
+                                        </select>
+
+                                        <input type="text" id="eventStart" placeholder="예: 9:30" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="eventEnd">End Time</label>
+
+                                    <div class="time-input-group">
+                                        <select class="time-select" id="eventEndPeriod">
+                                            <option value="AM">오전</option>
+                                            <option value="PM">오후</option>
+                                        </select>
+
+                                        <input
+                                            type="text"
+                                            id="eventEnd"
+                                            placeholder="예: 10:45"
+                                            required
+                                        >
+                                    </div>
+                                </div>
+
+                                <!--이벤트 색상 선택-->
+                                <div class="form-group">
+                                    <label for="eventColor">Color</label>
+                                    <select id="eventColor">
+                                        <option value="blue">Blue</option>
+                                        <option value="green">Green</option>
+                                        <option value="purple">Purple</option>
+                                        <option value="orange">Orange</option>
+                                        <option value="red">Red</option>
+                                    </select>
+                                </div>
+
+                                <div class="modal-actions">
+                                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                                    <button type="submit" class="btn btn-primary" id="saveBtn">Save Event</button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+
+                <!-- To Do 할 일 관리 -->
+                <section class="page-section">
+                    <div class="serve-title-group">
+                        <h1 id="intro-title">#To Do</h1>
+                        <hr>
+                    </div>
+
+                    <div class="todo-layout">
+
+                        <!-- 일정 추가 박스-->
+                        <article class="todo-panel">
+                            <div class="todo-form">
+                                <input type="text" id="todoInput" placeholder="새로운 할 일을 입력하세요." autocomplete="off">
+
+                                <select id="todoStatus">
+                                    <option value="todo">대기</option>
+                                    <option value="progress">진행중</option>
+                                    <option value="done">완료</option>
+                                </select>
+
+                                <button type="button" id="addTodoBtn">
+                                    추가
+                                </button>
+                            </div>
+
+                            <div class="todo-filter">
+                                <button type="button" class="filter-btn active" data-filter="all">
+                                    전체
+                                </button>
+
+                                <button type="button" class="filter-btn" data-filter="active">
+                                    미완료
+                                </button>
+
+                                <button type="button" class="filter-btn" data-filter="completed">
+                                    완료
+                                </button>
+                            </div>
+
+                            <ul id="todoList" class="todo-list">
+                                <!-- JavaScript에서 할 일 생성 -->
+                            </ul>
+                        </article>
+
+                        <!-- 일정 추가 상태 스테이징 박스 -->
+                        <article class="status-board">
+
+                            <section class="status-column">
+                                <header>
+                                    <h2>대기</h2>
+                                    <span id="todoCount">0</span>
+                                </header>
+
+                                <div class="stage-box" id="todoStage" class="stage-list" data-status="todo"></div>
+                            </section>
+
+                            <section class="status-column">
+                                <header>
+                                    <h2>진행중</h2>
+                                    <span id="progressCount">0</span>
+                                </header>
+
+                                <div class="stage-box" id="progressStage" class="stage-list" data-status="progress"></div>
+                            </section>
+
+                            <section class="status-column">
+                                <header>
+                                    <h2>완료</h2>
+                                    <span id="doneCount">0</span>
+                                </header>
+
+                                <div class="stage-box" id="doneStage" class="stage-list" data-status="done"></div>
+                            </section>
+
+                        </article>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+    
+
+        <div id="footer-container"></div>
+
+        <script src="./js/common.js"></script>
+
+        <!-- 모듈 JavaScript -->
+        <script type="module" src="./js/schedule.js"></script>
+    </body>
+</html>

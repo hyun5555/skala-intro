@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>나의 여행 블로그</title>
+
+    <link rel="stylesheet" href="./css/travel.css">
+    <link rel="stylesheet" href="./css/common.css">
+    
+</head>
+
+<body class="travel-page">
+
+    <!-- 공통 헤더 -->
+    <div id="header-container"></div>
+
+    <main class="travel-main">
+
+        <div class="main-content">
+
+            <!-- 여행 페이지 상단바 -->
+            <section class="travel-topbar">
+                <div class="serve-title-group">
+                    <p class="travel-eyebrow">MY TRAVEL RECORD</p>
+                    <h1 id="intro-title">나의 여행 블로그</h1>
+                </div>
+            </section>
+
+            
+            <!-- 여행 카드 목록 형으로 만들기 -->
+            <section
+                class="travel-gallery-section"
+                aria-labelledby="travel-gallery-title"
+            >
+                <div class="gallery-header">
+                    <div>
+                        <h2 id="travel-gallery-title">여행 기록</h2>
+                    </div>
+
+                </div>
+
+                <div class="travel-gallery" id="travel-gallery">
+
+                    <!-- 1. 뉴욕 -->
+                    <article class="travel-card">
+                        <button type="button" class="travel-open-button" data-page="./travel_blog.html?city=newyork" aria-label="뉴욕 여행 상세 페이지 열기">
+                            <figure>
+                                <div class="travel-image-wrap">
+                                    <img src="./images/newyork.png" alt="뉴욕 여행 상세 보기">
+
+                                    <span class="travel-status">
+                                        다녀옴
+                                    </span>
+                                </div>
+
+                                <figcaption>
+                                    <div class="card-heading">
+                                        <h3>뉴욕 여행</h3>
+                                        <span>🇺🇸</span>
+                                    </div>
+
+                                    <span class="card-detail">
+                                        기록 보기 →
+                                    </span>
+                                </figcaption>
+                            </figure>
+                        </button>
+                    </article>
+
+                    <!-- 2. LA 여행 -->
+                    <article class="travel-card">
+                        <button type="button" class="travel-open-button" data-page="./travel_blog.html?city=jeju" aria-label="la 여행 상세 페이지 열기">
+                            <figure>
+                                <div class="travel-image-wrap">
+                                    <img src="./images/la.png" alt="LA 여행 상세 보기">
+
+                                    <span class="travel-status">
+                                        다녀옴
+                                    </span>
+                                </div>
+
+                                <figcaption>
+                                    <div class="card-heading">
+                                        <h3>LA 여행</h3>
+                                        <span>🌴</span>
+                                    </div>
+
+                                    <span class="card-detail">
+                                        기록 보기 →
+                                    </span>
+                                </figcaption>
+                            </figure>
+                        </button>
+                    </article>
+
+                    <!-- 3. 방콕 여행 이미지 -->
+                    <article class="travel-card">
+                        <button type="button" class="travel-open-button" data-page="./travel_blog.html?city=busan" aria-label="방콕 여행 상세 페이지 열기">
+                            <figure>
+                                <div class="travel-image-wrap">
+                                    <img src="./images/bangkok.png" alt="방콕 여행 상세 보기">
+                                </div>
+
+                                <span class="travel-status">
+                                    다녀옴
+                                </span>
+
+                                <figcaption>
+                                    <div class="card-heading">
+                                        <h3>방콕 여행</h3>
+                                        <span>🥭</span>
+                                    </div>
+
+                                    <span class="card-detail">
+                                        기록 보기 →
+                                    </span>
+                                </figcaption>
+                            </figure>
+                        </button>
+                    </article>
+
+                    <!-- 4. 도쿄 여행 이미지-->
+                    <article class="travel-card">
+                        <button type="button" class="travel-open-button" data-page="./travel_blog.html?city=tokyo" aria-label="도쿄 여행 상세 페이지 열기">
+                            <figure>
+                                <div class="travel-image-wrap">
+                                    <img src="./images/tokyo.png" alt="도쿄 여행 상세 보기">
+
+                                    <span class="travel-status">
+                                        다녀옴
+                                    </span>
+                                </div>
+
+                                <figcaption>
+                                    <div class="card-heading">
+                                        <h3>도쿄 여행</h3>
+                                        <span>🗼</span>
+                                    </div>
+
+                                    <span class="card-detail">
+                                        기록 보기 →
+                                    </span>
+                                </figcaption>
+                            </figure>
+                        </button>
+                    </article>
+
+                    <!-- 5. 시드니 여행 이미지-->
+                    <article class="travel-card">
+                        <button type="button" class="travel-open-button" data-page="./travel_blog.html?city=paris" aria-label="시드니 여행 상세 페이지 열기">
+                            <figure>
+                                <div class="travel-image-wrap">
+                                    <img src="./images/sydney.png" alt="시드니 여행 상세 보기">
+
+                                    <span class="travel-status">
+                                        다녀옴
+                                    </span>
+                                </div>
+
+                                <figcaption>
+                                    <div class="card-heading">
+                                        <h3>시드니 여행</h3>
+                                        <span>🦘</span>
+                                    </div>
+
+
+                                    <span class="card-detail">
+                                        기록 보기 →
+                                    </span>
+                                </figcaption>
+                            </figure>
+                        </button>
+                    </article>
+
+                    <!-- 6. 상하이 여행 이미지-->
+                    <article class="travel-card">
+                        <button type="button" class="travel-open-button" data-page="./travel_blog.html?city=london" aria-label="상하이 여행 상세 페이지 열기">
+                            <figure>
+                                <div class="travel-image-wrap">
+                                    <img src="./images/shanghai.png" alt="상하이 여행 상세 보기">
+
+                                    <span class="travel-status">
+                                        다녀옴
+                                    </span>
+                                </div>
+
+                                <figcaption>
+                                    <div class="card-heading">
+                                        <h3>상하이 여행</h3>
+                                        <span>🥟</span>
+                                    </div>
+
+                                    <span class="card-detail">
+                                        기록 보기 →
+                                    </span>
+                                </figcaption>
+                            </figure>
+                        </button>
+                    </article>
+
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- 여행 중앙에 창(iframe) 띄워서 미리보기 -->
+    <div class="page-preview" id="page-preview" aria-hidden="true">
+        <div class="page-preview-backdrop"></div>
+
+        <section class="page-preview-window" role="dialog" aria-modal="true" aria-label="여행 상세 페이지">
+            <div class="page-preview-toolbar">
+
+                <button type="button" class="preview-expand-button" id="preview-expand" aria-label="전체 페이지로 열기">
+                    ↗
+                </button>
+
+                <div class="preview-actions">
+                    <button type="button" class="preview-close-button" id="preview-close" aria-label="미리보기 닫기">
+                        ×
+                    </button>
+                </div>
+
+            </div>
+
+            <iframe id="travel-preview-frame" class="travel-preview-frame" title="여행 상세 페이지 미리보기"></iframe>
+        </section>
+    </div>
+
+    <!-- 공통 푸터 -->
+    <div id="footer-container"></div>
+
+    <script src="./js/common.js"></script>
+    <script src="./js/travel.js"></script>
+
+</body>
+</html>

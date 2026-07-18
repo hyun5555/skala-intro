@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>회원가입 페이지</title>
+        <link rel="stylesheet" href="./css/common.css">
+        <link rel="stylesheet" href="./css/auth.css">
+    </head>
+    
+    <body>
+        <main class="signup-container">
+            <h1 id="signup-title">SIGN UP</h1>
+            <form id="signup-form" action="signup_result.html" method="get">
+
+                <!--기본 정보 필드-->
+                <fieldset>
+
+                    <legend class="align-center" id="signup-legend">기본 정보</legend>
+
+                    <!--아이디-->
+                        <div class="form-group">
+                            <div class="user-form">
+                                <input type="text" class="common-btn" name="user-id" id="user-id" placeholder="Id" 
+                                minlength="4" maxlength="12" pattern="[a-z0-9]{4,12}" required>
+                                <small class="help-text">
+                                    (영문 소문자/숫자 4 ~ 12자리)
+                                </small>
+                            </div>
+                        </div>
+
+                    
+                    <!--비밀번호-->
+                        <div class="form-group">
+                            <div class="user-form"> 
+                                <input type="password" class="common-btn" name="user-pw" id="user-pw" placeholder="Password" 
+                                minlength="8" maxlength="16"  pattern="(?=.*[A-Za-z])(?=.*[0-9]).{8,16}" required>
+                                <small class="help-text">
+                                    (영문/숫자 8 ~ 16자리)
+                                </small>
+                            </div>
+
+                            <input class="common-btn" id="user-pw-confirm" name="user-pw-confirm" type="password" minlength="8" maxlength="16" 
+                            placeholder="Confirm Password" required>
+                        </div>
+
+
+                        <!--이메일-->
+                        <div class="form-group">
+                            <div class="email-from">
+                                <p>
+                                    <input type="text" class="common-btn" id="user-email" name="user-email" placeholder="E-mail" 
+                                    pattern="[A-Za-z0-9._%+-]+" required>
+                                    @
+                                    <select name="email-domain" id="email-domain">
+                                        <option value="direct">직접 입력</option>
+                                        <option value="naver.com">naver.com</option>
+                                        <option value="gmail.com">gmail.com</option>
+                                        <option value="daum.net">daum.net</option>
+                                    </select>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!--사용자 이름-->
+                        <div class="form-group">
+                            <div class="user-form">
+                                <input type="text" class="common-btn" name="user-name" id="user-name" placeholder="Name" required>
+                            </div>
+                        </div>
+
+                        <!--생년월일-->
+                        <div class="form-group">
+                            <div class="user-form">
+                                <input type="date" class="common-btn" name="user-birth" id="user-birth" placeholder="생년월일 8자리" 
+                                min="1900-01-01" max="2026-12-31" required>
+                            </div>
+                        </div>
+
+                        <!--핸드폰 번호-->
+                        <div class="form-group">
+                            <div class="user-form">
+                                <input type="tel" class="common-btn" name="phone-num" id="phone-num" placeholder="010-1234-5678" 
+                                pattern="010-[0-9]{4}-[0-9]{4}" required>
+                                <small class="help-text">
+                                    010-0000-0000 형식으로 입력하세요.
+                                </small>
+                            </div>
+                        </div>
+                        
+                </fieldset>
+
+                <!--세부 정보 필드-->
+                <fieldset>
+
+                    <legend class="align-center" id="signup-legend">세부 정보</legend>
+
+                    <!-- 성별 -->
+                    <div class="form-group">
+                        <ul class="adult-list">
+                            <li class="radio-item">
+                                <input type="radio" class="blind" id="identity-gender1" name="identity-gender" value="M">
+                                <label for="identity-gender1">남자</label>
+                            </li>
+                            <li class="radio-item">
+                                <input type="radio" class="blind" id="identity-gender2" name="identity-gender" value="F">
+                                <label for="identity-gender2">여자</label>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <!-- 거주 지역 -->
+                    <div class="form-group">
+                        <span class="region" for="region">거주 지역</span>
+
+                        <select id="region" name="region">
+                            <option value="">지역을 선택하세요</option>
+                            <option value="seoul">서울</option>
+                            <option value="kyeonggi">경기</option>
+                            <option value="incheon">인천</option>
+                            <option value="busan">부산</option>
+                            <option value="ulsan">울산</option>
+                            <option value="daegu">대구</option>
+                            <option value="gwangju">광주</option>
+                            <option value="jeju">제주</option>
+                        </select>
+                    </div>
+
+
+                    <!-- 관심 분야 -->
+                    <div class="form-group">
+
+                        <div class="choice-group">
+                            <input type="checkbox" id="interest-frontend" class="choice-input" name="interest" value="frontend">
+                            <label for="interest-frontend" class="check-btn">Frontend
+                            
+                            <input type="checkbox" id="interest-backend" class="choice-input" name="interest" value="backend">
+                            <label for="interest-backend" class="check-btn">Backend
+                                
+                                
+                            <input type="checkbox" id="interest-design" class="choice-input" name="interest" value="design">
+                            <label for="interest-design" class="check-btn">Design
+
+                            <input type="checkbox" id="interest-ai" class="choice-input" name="interest" value="ai">
+                            <label for="interest-ai" class="check-btn">AI       
+
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <br>
+
+ 
+                
+                <div class="create-btn align-center ">
+                    <div class="choice-group">
+                        <input type="checkbox" class="choice-input" id="privacy-agree" name="privacy-agree" required>
+                        <label for="privacy-agree" class="check-btn"> 개인정보 수집 및 이용약관 동의
+                    </div>
+                    <button type="submit" class="btn-submit" id="create-submit">Create Account</button>
+                </div>
+
+            </form>
+            
+
+
+        </main>
+
+        <script src="./js/auth.js"></script>
+        
+
+    </body>
+
+
+
+</html>

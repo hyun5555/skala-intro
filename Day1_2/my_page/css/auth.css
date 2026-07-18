@@ -1,0 +1,394 @@
+/*===로그인/회원가입 페이지 배경 색 그라데이션 넣기====*/
+body {
+    min-height: 100vh;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #c2d4f3
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 200px;
+}
+
+/*login.html log in here 로고 style*/
+legend {
+    font-weight: 300;
+    font-size: 40px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    transform: translateY(50px);
+}
+
+
+/*====약간 유리 같은 블러 창 만들기====*/
+fieldset {
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.3);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    padding: 80px;
+}
+
+
+/***체크박스 버튼 양식***/
+.save-id, .choice-group {
+    display: felx;
+    align-items: center;
+}
+
+#save-check {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.check-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 13px;
+    font-weight: 300;
+    color: #555;
+    cursor: pointer;
+}
+
+/*체크박스 radius 체크 컨텐트 추가*/
+.check-btn::before{
+    content: "✓";
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+
+    border: 2px solid #999;
+    border-radius: 20%;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+    font-weight: bold;
+    
+    transition:
+        background-color 0.2s,
+        border-color 0.2s,
+        color 0.2s;
+}
+
+/*체크했을때 색상 변경*/
+#save-check:checked + .check-btn::before {
+    background-color: #acd8f8;
+    border-color: #acd8f8;
+    color: #fff;
+}
+
+/* 체크됐을 때 글자 조금 진하게 */
+#save-check:checked + .check-btn {
+    color: #444;
+    font-weight: 600;
+}
+
+/*======체크박스버튼 양식=======*/
+#create-submit, #login-submit, #go-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    box-shadow: none;
+
+    width: 80%;
+    height: 40px;
+
+    border-radius: 10px;
+    background-color: #fff;
+    color: #4da9ee;
+
+    margin-top: 20px;
+
+    font-size: 20px;
+    font-weight: 500;
+}
+
+
+
+
+/*======로그인 페이지======*/
+.login-form-group {
+    display: grid;
+    gap: 5px;
+    
+}
+
+.common-btn {
+    border: 0px solid #000 !important;
+    background: #fff;
+    border-radius: 5px;
+    height: 40px;
+    padding: 0 10px;
+}
+
+
+/*====로그인 버튼====*/
+.login-action {
+    width: 100%;
+}
+
+.login-action button, .create-btn button , .go-btn button {
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.form-btn {
+    width: 100%;
+}
+
+.align-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* 가로 가운데 */
+    justify-content: center; /* 세로 가운데 */
+    gap: 15px;
+}
+
+
+
+/*create accout 메뉴 스타일*/
+.account-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 18px;
+}
+
+.account-menu a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.account-menu a:hover {
+    color: #4da9ee;
+}
+
+
+
+
+
+/*====회원가입 페이지====*/
+/*기본정보*/
+
+h1, #signup-legend {
+    color: #ffffff;
+    text-shadow: 0px 2px 1px rgba(129, 195, 245, 0.1)
+}
+
+#signup-legend {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+#user-pw {
+    margin-bottom: 5px;
+}
+
+small {
+    color: #c4c4c4;
+}
+
+
+/*세부정보*/
+.form-label {
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 30px; 
+    margin-right: 30px;
+}
+
+
+
+/*******성별 선택 버튼*********/
+.adult-list {
+    display: flex;
+
+    width: 100%;
+    max-width: 800px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+    
+}
+/*라디오 버튼 체크 형태 잡기*/
+.radio-item input:checked+label {
+    z-index: 1;
+    border-color: var(--color-primary-stroke-default);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary-foreground-default);
+}
+
+.radio-item {
+    flex: 1;
+}
+
+/*성별 버튼 형태 잡기*/
+.radio-item label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 50px;
+
+    box-sizing: border-box;
+    border: 2px solid #c6c6c6;
+
+    background-color: #fff;
+    color: #929294;
+
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.blind {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+
+    overflow: hidden;
+    clip-path: inset(50%);
+}
+
+/* 남자 버튼 모서리 */
+.radio-item:first-child label {
+    border-radius: 9px 0 0 9px;
+}
+
+/* 여자 버튼 모서리 */
+.radio-item:last-child label {
+    border-left: none;
+    border-radius: 0 9px 9px 0;
+}
+
+/* 선택된 버튼 */
+.radio-item input:checked + label {
+    position: relative;
+    z-index: 1;
+
+    border: 2px solid #acd8f8;
+
+    color: #acd8f8;
+    font-weight: 300;
+}
+
+/* 여자 버튼 선택 시 사라졌던 가운데 선 보정 */
+.radio-item:last-child input:checked + label {
+    margin-left: -2px;
+    width: calc(100% + 2px);
+}
+
+.region {
+    color: white;
+    padding-right: 20px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+
+/***관심 분야 체크 박스 위치 ***/
+#interest-frontend, #interest-backend, 
+#interest-design, #interest-ai {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/***관심 분야 체크 박스 체크됐을때 컬러 ***/
+#interest-frontend:checked + .check-btn::before,
+#interest-backend:checked + .check-btn::before,
+#interest-design:checked + .check-btn::before,
+#interest-ai:checked + .check-btn::before {
+    background-color: #acd8f8;
+    border-color: #acd8f8;
+    color: #fff;
+}
+
+
+#interest-frontend:checked + .check-btn,
+#interest-backend:checked + .check-btn,
+#interest-design:checked + .check-btn,
+#interest-ai:checked + .check-btn {
+    color: #444;
+    font-weight: 600;
+}
+
+/***개인 정보 동의 체크 박스 색상 변경***/
+#privacy-agree {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    margin-left: 30px;
+}
+
+#privacy-agree:checked + .check-btn::before {
+    background-color: #acd8f8;
+    border-color: #acd8f8;
+    color: #fff;
+}
+
+#privacy-agree:checked+ .check-btn {
+    color: #444;
+    font-weight: 600;
+}
+
+
+
+
+/*====회원가입 완료 결과 페이지====*/
+.success-icon {
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+th, td{
+    font-size: 20px;
+    font-weight: 600;
+    text-shadow: 0px 2px 1px rgba(129, 195, 245, 0.1);
+    color: #fff;
+    
+}
+
+th {
+    padding-right: 20px;
+    text-align: left;
+}
+
+td {
+    min-width: 200px;
+}
